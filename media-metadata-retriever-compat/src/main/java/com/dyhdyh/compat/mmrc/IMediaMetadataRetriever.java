@@ -22,8 +22,6 @@ public interface IMediaMetadataRetriever {
 
     Bitmap getScaledFrameAtTime(long timeUs, int option, int width, int height);
 
-    public Bitmap getScaledFrameAtTime(long timeUs, int option, float widthScale, int heightScale, float rotate);
-
     byte[] getEmbeddedPicture();
 
     String extractMetadata(String keyCode);

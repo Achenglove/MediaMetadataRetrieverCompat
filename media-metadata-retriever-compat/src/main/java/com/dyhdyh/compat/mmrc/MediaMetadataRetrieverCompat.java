@@ -122,6 +122,14 @@ public class MediaMetadataRetrieverCompat {
         }
     }
 
+    public Bitmap getScaledFrameAtTime(long timeUs, int option, float widthScale, int heightScale, float rotate) {
+        String widthText = extractMetadata(METADATA_KEY_VIDEO_WIDTH);
+        String heightText = extractMetadata(METADATA_KEY_VIDEO_HEIGHT);
+        int width = TextUtils.isEmpty(widthText) ? 0 : (int) (Integer.parseInt(widthText) * widthScale);
+        int height = TextUtils.isEmpty(heightText) ? 0 : (int) (Integer.parseInt(heightText) * heightScale);;
+        return getScaledFrameAtTime(timeUs, option, width, height, rotate);
+    }
+
     public Bitmap getScaledFrameAtTime(long timeUs, int option, int width, int height, float rotate) {
         boolean isRotate = isRotate(rotate);
         Bitmap frame = getScaledFrameAtTime(timeUs, option,
